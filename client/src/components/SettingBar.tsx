@@ -1,7 +1,20 @@
 import React from "react";
+import toolState from "../store/toolState";
 
 const SettingBar = () => {
-  return <div className="toolbar">SettingBar</div>;
+  return (
+    <div className="toolbar">
+      <label htmlFor="line-width">Line width</label>
+      <input
+        onChange={(e) => toolState.setLineWidth(Number(e.target.value))}
+        id="line-width"
+        type="number"
+        defaultValue={1}
+        min={1}
+        max={100}
+      />
+    </div>
+  );
 };
 
 export default SettingBar;
