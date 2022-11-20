@@ -20,6 +20,19 @@ class CanvasState {
     this.redoList.push(data);
   }
 
+  updates(dataUrl: string) {
+    if (this.canvas) {
+      let ctx = this.canvas.getContext("2d");
+      let img = new Image();
+      img.src = dataUrl;
+      img.onload = () => {
+        if (this.canvas) {
+          ctx?.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
+        }
+      };
+    }
+  }
+
   undo() {
     if (this.canvas) {
       let ctx = this.canvas.getContext("2d");
