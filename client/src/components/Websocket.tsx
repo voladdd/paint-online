@@ -8,8 +8,8 @@ import Chat from "./Chat";
 const Websocket = () => {
   const socket = useContext(WebsocketContext);
   const [messages, setMessages] = useState<string[]>([]);
-  const onSend = (value: string) => {
-    socket.emit("newMessage", value);
+  const onSend = (value: string, name: string) => {
+    socket.emit("newMessage", `"${name}": ${value}`);
   };
 
   useEffect(() => {
