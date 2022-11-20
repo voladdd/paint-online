@@ -3,6 +3,7 @@ import Tool from "../tools/Tool";
 
 class ToolState {
   tool: Tool | null = null;
+  color: string | CanvasGradient | CanvasPattern = "black";
   constructor() {
     makeAutoObservable(this);
   }
@@ -11,14 +12,23 @@ class ToolState {
     this.tool = tool;
   }
 
-  setFillColor(color: string | CanvasGradient | CanvasPattern) {
+  refreshColor() {
     if (this.tool) {
-      this.tool.fillColor = color;
+      //   this.tool.fillColor = this.color;
+      this.tool.strokeColor = this.color;
     }
   }
+
+  //   setFillColor(color: string | CanvasGradient | CanvasPattern) {
+  //     if (this.tool) {
+  //       this.tool.fillColor = color;
+  //       this.color = color;
+  //     }
+  //   }
   setStrokeColor(color: string | CanvasGradient | CanvasPattern) {
     if (this.tool) {
       this.tool.strokeColor = color;
+      this.color = color;
     }
   }
   setLineWidth(width: number) {

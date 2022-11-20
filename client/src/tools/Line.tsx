@@ -48,7 +48,7 @@ export default class Line extends Tool {
     if (this.saved) {
       img.src = this.saved;
     }
-    img.onload = (async () => {
+    img.onload = async () => {
       if (this.ctx) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
@@ -59,10 +59,8 @@ export default class Line extends Tool {
         this.ctx.lineTo(x, y);
         this.ctx.stroke();
       }
-    }).bind(this);
-
+    };
     this.ctx?.lineTo(x, y);
     this.ctx?.stroke();
-    console.log("drawing");
   }
 }

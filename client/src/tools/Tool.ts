@@ -8,14 +8,6 @@ export default class Tool {
     this.ctx = canvas.getContext("2d");
     this.destroyEvents();
   }
-
-  public set fillColor(
-    color: string | CanvasGradient | CanvasPattern | undefined
-  ) {
-    if (this.ctx && color) {
-      this.ctx.fillStyle = color;
-    }
-  }
   set strokeColor(color: string | CanvasGradient | CanvasPattern) {
     if (this.ctx) {
       this.ctx.strokeStyle = color;
