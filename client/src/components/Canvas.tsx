@@ -37,7 +37,7 @@ const Canvas = observer(({ onDraw, draw }: CanvasProps) => {
     const data = canvasRef.current?.toDataURL();
     if (data) {
       onDraw(data);
-      canvasState.updates(draw);
+      // canvasState.updates(draw);
     }
   };
 

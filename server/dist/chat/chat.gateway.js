@@ -28,6 +28,13 @@ let ChatGateway = class ChatGateway {
             content: body,
         });
     }
+    onNewDraw(body) {
+        console.log('Get new draw');
+        this.server.emit('onDraw', {
+            msg: 'New Draw',
+            content: body,
+        });
+    }
 };
 __decorate([
     (0, websockets_1.WebSocketServer)(),
@@ -40,6 +47,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], ChatGateway.prototype, "onNewMessage", null);
+__decorate([
+    (0, websockets_1.SubscribeMessage)('newDraw'),
+    __param(0, (0, websockets_1.MessageBody)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ChatGateway.prototype, "onNewDraw", null);
 ChatGateway = __decorate([
     (0, websockets_1.WebSocketGateway)({
         cors: {

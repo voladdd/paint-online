@@ -30,4 +30,13 @@ export class ChatGateway implements OnModuleInit {
       content: body,
     });
   }
+
+  @SubscribeMessage('newDraw')
+  onNewDraw(@MessageBody() body: any): void {
+    console.log('Get new draw');
+    this.server.emit('onDraw', {
+      msg: 'New Draw',
+      content: body,
+    });
+  }
 }
