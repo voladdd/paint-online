@@ -1,15 +1,11 @@
-import React from "react";
-import Canvas from "./components/Canvas";
-import SettingBar from "./components/SettingBar";
-import Toolbar from "./components/Toolbar";
+import Websocket from "./components/Websocket";
+import { socket, WebsocketProvider } from "./contexts/WebsocketContext";
 
 function App() {
   return (
-    <div className="App">
-      <Toolbar />
-      <SettingBar />
-      <Canvas />
-    </div>
+    <WebsocketProvider value={socket}>
+      <Websocket />
+    </WebsocketProvider>
   );
 }
 
