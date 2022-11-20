@@ -14,17 +14,10 @@ class ToolState {
 
   refreshColor() {
     if (this.tool) {
-      //   this.tool.fillColor = this.color;
       this.tool.strokeColor = this.color;
     }
   }
 
-  //   setFillColor(color: string | CanvasGradient | CanvasPattern) {
-  //     if (this.tool) {
-  //       this.tool.fillColor = color;
-  //       this.color = color;
-  //     }
-  //   }
   setStrokeColor(color: string | CanvasGradient | CanvasPattern) {
     if (this.tool) {
       this.tool.strokeColor = color;

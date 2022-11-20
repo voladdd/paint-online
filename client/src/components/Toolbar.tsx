@@ -37,8 +37,22 @@ const Toolbar = () => {
         eraser
       </button>
       <input type="color" onChange={(e) => changeColor(e)} />
-      <button className="toolbar__btn undo">undo</button>
-      <button className="toolbar__btn redo">redo</button>
+      <button
+        className="toolbar__btn undo"
+        onClick={() => {
+          canvasState.undo();
+        }}
+      >
+        undo
+      </button>
+      <button
+        className="toolbar__btn redo"
+        onClick={() => {
+          canvasState.redo();
+        }}
+      >
+        redo
+      </button>
     </div>
   );
 };
