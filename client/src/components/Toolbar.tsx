@@ -4,6 +4,7 @@ import toolState from "../store/toolState";
 import Brush from "../tools/Brush";
 import Eraser from "../tools/Eraser";
 import Line from "../tools/Line";
+import "../styles/Toolbar.css";
 
 const Toolbar = () => {
   const changeColor = (e: ChangeEvent<HTMLInputElement>) => {
@@ -11,9 +12,8 @@ const Toolbar = () => {
   };
 
   return (
-    <div className="toolbar">
+    <div className="Toolbar">
       <button
-        className="toolbar__btn brush"
         onClick={(e) => {
           toolState.setTool(new Brush(canvasState.canvas));
           toolState.refreshColor();
@@ -22,7 +22,6 @@ const Toolbar = () => {
         brush
       </button>
       <button
-        className="toolbar__btn line"
         onClick={() => {
           toolState.setTool(new Line(canvasState.canvas));
           toolState.refreshColor();
@@ -30,15 +29,11 @@ const Toolbar = () => {
       >
         line
       </button>
-      <button
-        className="toolbar__btn eraser"
-        onClick={() => toolState.setTool(new Eraser(canvasState.canvas))}
-      >
+      <button onClick={() => toolState.setTool(new Eraser(canvasState.canvas))}>
         eraser
       </button>
       <input type="color" onChange={(e) => changeColor(e)} />
       <button
-        className="toolbar__btn undo"
         onClick={() => {
           canvasState.undo();
         }}
@@ -46,7 +41,6 @@ const Toolbar = () => {
         undo
       </button>
       <button
-        className="toolbar__btn redo"
         onClick={() => {
           canvasState.redo();
         }}

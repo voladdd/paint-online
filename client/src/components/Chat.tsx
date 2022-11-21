@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/Chat.css";
 
 interface ChatProps {
   onSend: (value: string, name: string) => void;
@@ -10,7 +11,14 @@ const Chat = ({ onSend, messages }: ChatProps) => {
   const [name, setName] = useState("");
 
   return (
-    <div>
+    <div className="Chat">
+      <div>
+        {messages.map((message, index) => (
+          <div className="text-3xl font-bold underline" key={index}>
+            {message}
+          </div>
+        ))}
+      </div>
       <input
         type="text"
         placeholder="Type your name there"
@@ -24,11 +32,6 @@ const Chat = ({ onSend, messages }: ChatProps) => {
         value={value}
       />
       <button onClick={() => onSend(value, name)}>Send</button>
-      <div>
-        {messages.map((message, index) => (
-          <div key={index}>{message}</div>
-        ))}
-      </div>
     </div>
   );
 };

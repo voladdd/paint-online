@@ -1,8 +1,10 @@
-.canvas {
+.Canvas {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
 }
 
 canvas {

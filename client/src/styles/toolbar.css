@@ -1,5 +1,5 @@
-.toolbar {
+.Toolbar {
   height: 40px;
-  background-color: white;
-  display: flex;
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
 }

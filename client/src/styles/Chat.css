@@ -1,0 +1,5 @@
+.Chat {
+  grid-row: 1 / 4;
+  grid-column: 2 / 3;
+  align-self: center;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../styles/canvas.css";
+import "../styles/Canvas.css";
 import { observer } from "mobx-react-lite";
 import canvasState from "../store/canvasState";
 import toolState from "../store/toolState";
@@ -42,7 +42,7 @@ const Canvas = observer(({ onDraw, draw }: CanvasProps) => {
   };
 
   return (
-    <div className="canvas">
+    <div className="Canvas">
       <canvas
         onMouseDown={() => mouseDownHandler()}
         onMouseUp={() => mouseUpHandler()}
