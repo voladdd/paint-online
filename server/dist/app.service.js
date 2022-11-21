@@ -9,6 +9,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
 let AppService = class AppService {
+    calculateMandelbrot(dto) {
+        const MAX_ITERATIONS = 500;
+        const isBounded = (c) => {
+            const m = { r: 0, i: 0 };
+            for (var i = 0; i < MAX_ITERATIONS; i++) {
+                const temp = m.r;
+                m.r = m.r * m.r - m.i * m.i + c.r;
+                m.i = 2 * temp * m.i + c.i;
+                if (m.r * m.r + m.i * m.i > 4) {
+                    return i;
+                }
+            }
+            return i;
+        };
+        const calc = (zoom, x, y, resolution) => {
+            const result = [];
+            for (let r = 0; r < resolution; r++) {
+                for (let c = 0; c < resolution; c++) {
+                    const complex = {
+                        r: x - zoom / 2 + (zoom * c) / resolution,
+                        i: y + zoom / 2 - (zoom * r) / resolution,
+                    };
+                    const n = isBounded(complex);
+                    result.push({ n, r, c });
+                }
+            }
+            return result;
+        };
+        const res = calc(dto.zoom, dto.x, dto.y, dto.resolution);
+        return res;
+    }
     getHello() {
         return 'Hello World!';
     }
